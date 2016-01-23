@@ -7,5 +7,15 @@
             Hello World!
             {% endif %}
         </h1>
+
+        <div>
+            <form action="{{ url_for('add_transaction') }}" method='POST'>
+                <dl>
+                    <dt>Expense Name
+                        <dd><input type=text name='expense_name'>
+                    <dt>Expense Value
+                        <dd><input type=text name='expense_value'>
+                    <dd><input type=submit value='submit'>
+                </dl>
     </body>
 </html>
