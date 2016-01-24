@@ -19,8 +19,8 @@ div.content {
     top: 50%;
     left: 50%;
     margin-right: -50%;
-    transform: translate(-50%, -50%)
-
+    transform: translate(-50%, -50%);
+    font-size : 20pt;
 }
 
 div.buttons {
@@ -40,12 +40,25 @@ input {
 	border-right : 0px;
 }
 
-input.button{
+input.button {
 	background-color :  #14cfa4;
 	width : 120px;
 	height : 75px;
 	border-radius : 10px;
 	border-bottom : 0px;
+}
+
+div.main_menu_button {
+	display : flex;
+	align-items : center;
+	justify-content : center;
+	width : 100%;
+	height : 1.5em;
+	background-color : #14cfa4;
+	border-radius : 10px;
+	vertical-align : middle;
+	font-weight : normal;
+	margin : 5px 0px;
 }
 
 input#expense{
@@ -56,4 +69,16 @@ input#expense{
 input#income{
 	background-color : #14cfa4;
 	float : left;
+}
+
+#main_menu {
+
+}
+
+#new_expense {
+	display : none;
+}
+
+#weekly_report {
+	display : none;
 }

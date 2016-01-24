@@ -3,14 +3,25 @@
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1" /> 
         <link rel='stylesheet' type='text/css' href='static/style.css'/>
+        <script type='text/javascript' src='static/jquery.js'></script>
+        <script type='text/javascript' src='static/index.js'></script>
     </head>
 
     <body>
         <div class='content'>
-            <div class='header'>
-                BDGT
+            <div id='main_menu'>
+                <div class='header'>
+                    BDGT
+                </div>
+                <div class='main_menu_button' id='new_expense_main'>New Expense</div>
+                <div class='main_menu_button' id='view_all_main'>View All</div>
+                <div class='main_menu_button' id='weekly_report_main'>Weekly Report</div>
             </div>
-            <div>
+            
+            <div id='new_expense'>
+                <div class='header'>
+                    BDGT
+                </div>
                 <form action="{{ url_for('add_transaction') }}" method='POST'>
                         <input type=text name='expense_name' placeholder='Expense Name'><br>
                         <input type=text name='expense_value' placeholder='Expense Amount'><br>
@@ -19,6 +30,13 @@
                             <input type=submit value='expense' class='button' id='expense'>
                         </div>
                 </form>
+            </div>
+
+            <div id='weekly_report'>
+                <div class='header'>
+                    BDGT
+                </div>
+            </div>
         </div>
     </body>
 
