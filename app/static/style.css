@@ -1,0 +1,59 @@
+body {
+	background-color : #222c31;
+	font-family : sans-serif;
+	color : white;
+	font-weight : bold;
+}
+
+div.header {
+	font-size : 40pt;
+}
+
+
+div.content {
+	text-align : center;
+	width : 250px;
+	display : block;
+	vertical-align : middle;
+	position : fixed;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%)
+
+}
+
+div.buttons {
+	padding-top : 10px;
+}
+
+input {
+	width : 250px;
+	font-family : sans-serif;
+	font-size : 20pt;
+	background-color : #222c31;
+	color : white;
+	text-align : center;
+	border-bottom : 1px solid #495f69;
+	border-top : 0px;
+	border-left : 0px;
+	border-right : 0px;
+}
+
+input.button{
+	background-color :  #14cfa4;
+	width : 120px;
+	height : 75px;
+	border-radius : 10px;
+	border-bottom : 0px;
+}
+
+input#expense{
+	background-color : #ce2929;
+	float : right;
+}
+
+input#income{
+	background-color : #14cfa4;
+	float : left;
+}

@@ -6,7 +6,6 @@ app = Flask(__name__)
 from app import config as config
 
 app.config.from_object(config)
-print(app.config['SQLALCHEMY_DATABASE_URI'])
 db = SQLAlchemy(app)
 
 class transaction(db.Model):
@@ -20,6 +19,9 @@ class transaction(db.Model):
         self.date = date
         self.name = name
         self.amount = amount
+
+    def __str__(self):
+        return str(self.date)+' '+self.name+' $'+str(self.amount)
 
 from app import views
 

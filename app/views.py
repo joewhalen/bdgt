@@ -3,13 +3,8 @@ from flask import render_template, request
 from datetime import datetime
 
 @app.route('/')
-@app.route('/<name>')
-def index(name=None):
-    return render_template('index.html',name=name)
-
-@app.route('/<name>_<age>')
-def f(name=None, age=None):
-    return render_template('name_age.html',name=name,age=age)
+def index():
+    return render_template('index.html')
 
 @app.route('/add_transaction', methods=['GET','POST'])
 def add_transaction():
@@ -21,3 +16,9 @@ def add_transaction():
         db.session.add(new_transaction)
         db.session.commit()
     return render_template('index.html')
+
+@app.route('/all_transactions')
+def all_transactions():
+    t = transaction.query.all()
+    t = [str(i) for i in t]
+    return render_template('show_all.html',transactions=t)
