@@ -1,3 +1,11 @@
-{% for t in transactions %}
-{{ t }}<br>
-{% endfor %}
+{% extends 'base.html' %}
+
+{% block header %}
+	<script type='text/javascript' src='static/view_all.js'></script>
+{% endblock %}
+
+{% block content %}
+	{% for t in transactions %}
+	{{ t }}<br>	
+	{% endfor %}
+{% endblock %}

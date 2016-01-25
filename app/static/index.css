@@ -1,0 +1,11 @@
+div.main_menu_button {
+	display : flex;
+	align-items : center;
+	justify-content : center;
+	width : 10em;
+	height : 1.5em;
+	background-color : #14cfa4;
+	border-radius : 10px;
+	font-weight : normal;
+	margin : 5px auto;
+}

@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block header %}
+	<link rel='stylesheet' type='text/css' href='static/weekly_report.css'/>
+	<script type='text/javascript' src='static/plotly.js'></script>
+	<script type='text/javascript' src='static/weekly_report.js'></script>
+{% endblock %}
+
+{% block content %}
+	{{ date }}
+	<div class='plot' id='barPlot'></div>
+	<div class='plot' id='linePlot'
+{% endblock %}

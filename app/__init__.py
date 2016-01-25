@@ -21,7 +21,7 @@ class transaction(db.Model):
         self.amount = amount
 
     def __str__(self):
-        return str(self.date)+' '+self.name+' $'+str(self.amount)
+        return self.date.strftime('%a %m/%d')+self.name+' $%.2f'%self.amount
 
 from app import views
 
