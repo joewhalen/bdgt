@@ -1,15 +1,11 @@
-<html>
+{% extends 'base.html' %}
 
-<head>
-	<link rel='stylesheet' type='text/css' href='static/style.css'/>
-	<script type='text/javascript' src='static/jquery.js'></script>
+{% block header %}
 	<script type='text/javascript' src='static/view_all.js'></script>
-</head>
+{% endblock %}
 
-<body>
-	<div class='content' style='display:none'>
-		{% for t in transactions %}
-		{{ t }}<br>
-		{% endfor %}
-	</div>
-</body>
+{% block content %}
+	{% for t in transactions %}
+	{{ t }}<br>	
+	{% endfor %}
+{% endblock %}
