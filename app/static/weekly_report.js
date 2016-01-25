@@ -16,18 +16,21 @@ $(document).ready( function(){
     		yaxis : { tickprefix : '$'}
 		};
 
-		if (data != { x : [], y : [] }){
+		if (data['x'].length != 0){
 			data['type']='bar';
 			data['orientation'] = 'v';
 			data['marker'] = { color : '#14cfa4'}
 			bardata = [data]
 			Plotly.newPlot('barPlot', [data], barstyle, kwargs)
+		} else {
+			$('div#barPlot').html('There is no data yet...')
+			$('div#barPlot').css('padding','50px')
 		}
 	});
 
 	$.getJSON('/get_weekly_report', { type : 'line' }).done( function(data){
 		
-		if (data != { x : [], y : []}) {
+		if (data['x'].length !=0) {
 
 			var lineps = {
 	    		margin : { t : 10, r : 0, b : 40, l : 30 },
