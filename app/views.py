@@ -2,6 +2,16 @@ from app import app, transaction, db
 from flask import render_template, request, jsonify
 from datetime import datetime,timedelta
 
+def get_last_monday(today):
+    delta = timedelta(
+        days = today.weekday(),
+        hours = today.hour,
+        minutes = today.minute,
+        seconds = today.second,
+        microseconds = today.microsecond
+        )
+    return (today - delta)
+
 @app.route('/')
 def index():
     return render_template('index.html')
@@ -36,9 +46,11 @@ def weekly_report():
 
 @app.route('/get_weekly_report')
 def get_weekly_report():
-    today = datetime.today()
-    last_monday = today - timedelta(today.weekday())
-    ts = transaction.query.filter(transaction.date <= today, transaction.date >= last_monday).all()
+    today = datetime.now()
+    last_monday = get_last_monday(today)
+    ts = transaction.query.filter(
+        transaction.date <= today,
+        transaction.date > last_monday).all()
 
     graph_type = request.args.get('type')
     response = dict(x=[], y=[])
@@ -57,6 +69,10 @@ def get_weekly_report():
                     response['x'].append(t.date.strftime('%a'))
                     response['y'].append(daysum)
                     daysum = t.amount
+
+                if t == ts[-1]:
+                    response['y'].append(daysum)
+            
         elif graph_type == 'line':
             tot = ts[0].amount
             response['x'].append(int(ts[0].date.strftime('%s'))*1000);
